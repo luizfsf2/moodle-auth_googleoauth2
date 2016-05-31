@@ -75,7 +75,7 @@ function googleoauth2_provider_redirect($providername) {
     }
 
     $loginurl = '/login/index.php';
-    if (!empty($CFG->alternateloginurl)) {
+    if (!empty($CFG->alternateloginurl) && $providername != 'facebook' ) {
         $loginurl = $CFG->alternateloginurl;
     }
     $url = new moodle_url($loginurl, array('code' => $code, 'authprovider' => $providername));
